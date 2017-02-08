@@ -1,4 +1,4 @@
-package org.sticker.jsf;
+package br.com.teste.java.jsf;
 
 import java.io.Serializable;
 import java.util.ArrayList;

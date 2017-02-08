@@ -11,21 +11,25 @@
 
 	<name>${name.project} - EAR</name>
 
-
 	<dependencies>
+
+		<dependency>
+			<groupId>br.com.teste</groupId>
+			<artifactId>newProject-ejb</artifactId>
+			<type>ejb</type>
+		</dependency>
+
 		<dependency>
 			<groupId>br.com.teste</groupId>
 			<artifactId>newProject-web</artifactId>
 			<type>war</type>
 		</dependency>
+
 	</dependencies>
 
 	<build>
-
 		<finalName>${project.artifactId}</finalName>
-
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-ear-plugin</artifactId>
@@ -36,10 +40,13 @@
 							<artifactId>newProject-web</artifactId>
 							<contextRoot>/new-project</contextRoot>
 						</webModule>
+						<ejbModule>
+							<groupId>br.com.teste</groupId>
+							<artifactId>newProject-ejb</artifactId>
+						</ejbModule>
 					</modules>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.jboss.as.plugins</groupId>
 				<artifactId>jboss-as-maven-plugin</artifactId>
@@ -48,7 +55,6 @@
 					<skip>false</skip>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>
