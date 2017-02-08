@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head jsf:id="head">
+<title>Sticker Story</title>
+<script jsf:target="body" jsf:name="story-page.js" />
+<link jsf:name="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body jsf:id="body">
+	<header>
+	<h1>Sticker Story Book</h1>
+	</header>
+	<nav> Drag stickers from the left bar to the canvas. </nav>
+	<aside>
+	<h2>Stickers</h2>
+	<div id="stickerContainer">
+		<ui:repeat var="imgName" value="${stickerSheet.allStickers}">
+			<img jsf:name="stickers/${imgName}" style="float: left"
+				draggable="true" ondragstart="drag(event);"
+				data-sticker="${imgName}" />
+		</ui:repeat>
+	</div>
+	</aside>
+	<div id="content">
+		<canvas id="board" width="1000" height="580" ondrop="drop(event);"
+			ondragover="allowDrop(event);"> Canvas Not Supported. </canvas>
+		<img src="resources/canvas2.png" id="background_img"
+			style="display: none;" />
+	</div>
+	<footer> <small>Made with JSF 2.2 + HTML5 + WebSockets
+		and JSON</small>
+	<ol>
+		<li onclick="toggleLog();">Log</li>
+	</ol>
+	</footer>
+	<div id="logContainer">
+		<h2>log</h2>
+		<div id="log"></div>
+	</div>
+</body>
+</html>
